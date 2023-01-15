@@ -1,5 +1,6 @@
 const { knexSnakeCaseMappers } = require('objection');
-
+import dotenv from "dotenv";
+dotenv.config({});
 
 module.exports = {
 
@@ -7,11 +8,11 @@ module.exports = {
   development: {
     client: 'mysql',
     connection: {
-      host : '127.0.0.1',
-      port : 3306,
-      database: 'walletservice',
-      user:     'root',
-      password: 'root'
+      host : process.env.DBHOST,
+      port : process.env.DBPORT,
+      database: process.env.DBNAME,
+      user:     process.env.DBUSER,
+      password: process.env.DBPASS
     },
     pool: {
       min: 2,
